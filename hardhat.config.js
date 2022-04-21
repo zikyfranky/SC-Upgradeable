@@ -1,4 +1,5 @@
 require("@nomiclabs/hardhat-waffle");
+require("@nomiclabs/hardhat-etherscan");
 require("@nomiclabs/hardhat-ethers");
 require("@openzeppelin/hardhat-upgrades");
 const { readFileSync } = require("fs");
@@ -7,7 +8,7 @@ const { readFileSync } = require("fs");
 const PV = readFileSync("./.secrets").toString();
 module.exports = {
   networks: {
-    defaultNetwork: "bsc_test",
+    // defaultNetwork: "bsc_test",
     ganache: {
       url: "http://127.0.0.1:7545", // Standard Ethereum port (default: none)
       network_id: "*", // Any network (default: none)
@@ -33,6 +34,11 @@ module.exports = {
         },
       },
     ],
+  },
+  etherscan: {
+    apiKey: {
+      bscTestnet: "HJFD6X2XDC1GQDI8YYPMBDW5MM2BRVCTSB",
+    },
   },
   mocha: {
     timeout: 40000,

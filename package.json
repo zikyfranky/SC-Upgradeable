@@ -13,6 +13,8 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@nomiclabs/hardhat-etherscan": "^3.0.3",
+    "@openzeppelin/contracts-upgradeable": "^4.5.2",
     "@openzeppelin/hardhat-upgrades": "^1.17.0",
     "ethers": "^5.6.4",
     "next": "12.1.5",

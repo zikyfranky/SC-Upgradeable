@@ -5,12 +5,15 @@ let Box;
 let BoxV2;
 let box;
 
-describe("Box (proxy)", function () {
+describe("Box (uups)", function () {
   before(async function () {
-    Box = await ethers.getContractFactory("Box");
-    BoxV2 = await ethers.getContractFactory("BoxV2");
+    Box = await ethers.getContractFactory("UBox");
+    BoxV2 = await ethers.getContractFactory("UBoxV2");
 
-    box = await upgrades.deployProxy(Box, [42], { initializer: "store" });
+    box = await upgrades.deployProxy(Box, ["42"], {
+      initializer: "initialize",
+      kind: "uups",
+    });
   });
 
   it("returns a value previously initialized", async function () {
